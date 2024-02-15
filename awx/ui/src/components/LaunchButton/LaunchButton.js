@@ -75,10 +75,12 @@ function LaunchButton({ resource, children }) {
       resource.type === 'workflow_job_template'
         ? WorkflowJobTemplatesAPI.readAllLabels(resource.id)
         : JobTemplatesAPI.readAllLabels(resource.id);
-
+    console.log("LaunchButton.js resource: ", resource);
+    console.log("LaunchButton.js readLaunch: ", readLaunch);
     try {
       const { data: launch } = await readLaunch;
       setLaunchConfig(launch);
+      console.log("LaunchButton.js launch: ", launch);
 
       if (launch.survey_enabled) {
         const { data } = await readSurvey;

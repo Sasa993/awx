@@ -404,6 +404,7 @@ class WorkflowJobOptions(LaunchTimeConfigBase):
         'InstanceGroup', related_name='workflow_job_instance_groups', blank=True, editable=False, through='WorkflowJobInstanceGroupMembership'
     )
     allow_simultaneous = models.BooleanField(default=False)
+    ask_nodes_job_type_on_launch = models.BooleanField(default=False)
 
     extra_vars_dict = VarsDictProperty('extra_vars', True)
 

@@ -108,6 +108,9 @@ function OtherPromptsStep({ launchConfig, variablesMode, onVarModeChange }) {
             tooltip={helpTextSource.skipTags}
           />
         )}
+        {launchConfig.ask_nodes_job_type_on_launch && (
+          <JobTypeField helpTextSource={helpTextSource} />
+        )}
         {launchConfig.ask_variables_on_launch && (
           <VariablesField
             id="prompt-variables"

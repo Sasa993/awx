@@ -31,6 +31,9 @@ function PreviewStep({ resource, launchConfig, surveyConfig, formErrors }) {
     ...values,
   };
 
+  console.log("PreviewStep values: ", values);
+  console.log("PreviewStep overrides: ", overrides);
+
   if (launchConfig.ask_variables_on_launch || launchConfig.survey_enabled) {
     try {
       const initialExtraVars =

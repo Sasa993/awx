@@ -47,6 +47,7 @@ class WorkflowJobTemplates extends SchedulesMixin(
   }
 
   readLaunch(id) {
+    console.log("api url: ", this.http.get(`${this.baseUrl}${id}/launch/`));
     return this.http.get(`${this.baseUrl}${id}/launch/`);
   }
 

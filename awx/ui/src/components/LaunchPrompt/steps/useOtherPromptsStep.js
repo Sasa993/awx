@@ -114,7 +114,8 @@ function shouldShowPrompt(launchConfig) {
     launchConfig.ask_labels_on_launch ||
     launchConfig.ask_forks_on_launch ||
     launchConfig.ask_job_slice_count_on_launch ||
-    launchConfig.ask_timeout_on_launch
+    launchConfig.ask_timeout_on_launch ||
+    launchConfig.ask_nodes_job_type_on_launch
   );
 }
 
@@ -126,7 +127,7 @@ function getInitialValues(launchConfig, resource, labels) {
   }
 
   if (launchConfig.ask_job_type_on_launch) {
-    initialValues.job_type = resource?.job_type || '';
+    initialValues.job_type = resource?.job_type || '';  // # todo A8N can I use this?
   }
   if (launchConfig.ask_limit_on_launch) {
     initialValues.limit = resource?.limit || null;
@@ -160,6 +161,9 @@ function getInitialValues(launchConfig, resource, labels) {
   }
   if (launchConfig.ask_labels_on_launch) {
     initialValues.labels = labels || [];
+  }
+  if (launchConfig.ask_nodes_job_type_on_launch) {
+    initialValues.ask_nodes_job_type_on_launch = resource?.ask_nodes_job_type_on_launch || false;
   }
   return initialValues;
 }

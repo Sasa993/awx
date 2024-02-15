@@ -304,6 +304,12 @@ function PromptDetail({
                   }
                 />
               )}
+              {launchConfig.ask_nodes_job_type_on_launch && (
+                <Detail
+                  label={t`Job Type (overrides all nodes)`}
+                  value={toTitleCase(overrides.job_type)}
+                />
+              )}
               {launchConfig.ask_labels_on_launch && (
                 <Detail
                   fullWidth

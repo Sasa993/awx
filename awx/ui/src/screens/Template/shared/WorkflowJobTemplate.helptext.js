@@ -14,6 +14,10 @@ const wfHelpTextStrings = () => ({
   variables: t`Pass extra command line variables to the playbook. This is the -e or --extra-vars command line parameter for ansible-playbook. Provide key/value pairs using either YAML or JSON. Refer to the Ansible Controller documentation for example syntax.`,
   enableWebhook: t`Enable Webhook for this workflow job template.`,
   enableConcurrentJobs: t`If enabled, simultaneous runs of this workflow job template will be allowed.`,
+  enablePromptLaunchNodesJobType: t`If enabled, a prompt will appear during
+  Workflow Launch, allowing you to set the job type for each node.
+  This feature prevents the creation of identical workflows with only
+  differing job types.`,
   webhookURL: t`Webhook services can launch jobs with this workflow job template by making a POST request to this URL.`,
   webhookKey: t`Webhook services can use this as a shared secret.`,
   webhookCredential: t`Optionally select the credential to use to send status updates back to the webhook service.`,

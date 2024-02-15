@@ -262,6 +262,12 @@ function WorkflowJobTemplateForm({
             tooltip={helpText.enableConcurrentJobs}
             label={t`Enable Concurrent Jobs`}
           />
+          <CheckboxField
+            name="ask_nodes_job_type_on_launch"
+            id="ask_nodes_job_type_on_launch"
+            tooltip={helpText.enablePromptLaunchNodesJobType}
+            label={t`Enable Prompt on Launch for Nodes Job Type`}
+          />
         </FormCheckboxLayout>
       </FormGroup>
 
@@ -328,6 +334,7 @@ const FormikApp = withFormik({
         ? `${urlOrigin}${template.related.webhook_receiver}`
         : '',
       webhook_key: template.webhook_key || '',
+      ask_nodes_job_type_on_launch: template.ask_nodes_job_type_on_launch || false,
     };
   },
   handleSubmit: async (values, { props, setErrors }) => {

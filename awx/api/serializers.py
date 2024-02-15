@@ -3769,6 +3769,7 @@ class WorkflowJobTemplateSerializer(JobTemplateMixin, LabelsListMixin, UnifiedJo
             'ask_tags_on_launch',
             'skip_tags',
             'job_tags',
+            'ask_nodes_job_type_on_launch',
         )
 
     def get_related(self, obj):
@@ -4692,6 +4693,7 @@ class WorkflowJobLaunchSerializer(BaseSerializer):
     labels = serializers.PrimaryKeyRelatedField(many=True, queryset=Label.objects.all(), required=False, write_only=True)
     skip_tags = serializers.CharField(required=False, write_only=True, allow_blank=True)
     job_tags = serializers.CharField(required=False, write_only=True, allow_blank=True)
+    job_type = serializers.ChoiceField(required=False, choices=NEW_JOB_TYPE_CHOICES, write_only=True)  # todo A8N continue maybe change the name
 
     class Meta:
         model = WorkflowJobTemplate
@@ -4718,6 +4720,7 @@ class WorkflowJobLaunchSerializer(BaseSerializer):
             'ask_tags_on_launch',
             'skip_tags',
             'job_tags',
+            'ask_nodes_job_type_on_launch',
         )
         read_only_fields = (
             'ask_inventory_on_launch',
@@ -4727,6 +4730,7 @@ class WorkflowJobLaunchSerializer(BaseSerializer):
             'ask_limit_on_launch',
             'ask_scm_branch_on_launch',
             'ask_tags_on_launch',
+            'ask_nodes_job_type_on_launch',
         )
 
     def get_survey_enabled(self, obj):
